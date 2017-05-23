@@ -1,0 +1,4 @@
+*.project
+*.prefs
+*.class
+grammar/sideshot.gram
