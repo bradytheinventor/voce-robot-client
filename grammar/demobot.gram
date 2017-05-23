@@ -1,0 +1,36 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Digits Grammar file
+ */
+
+grammar commands;
+
+public <control> = (enable | disable);
+
+<name> = (robot | side shot);
+
+<number_ones> = (one | two | three | four | five | six | seven | eight | nine);
+<number_teens> = (ten | eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen | nineteen);
+<number_tens> = (twenty | thirty | forty | fifty | sixty | seventy | eighty | ninety);
+<number_multiplier> = (hundred | thousand)*;
+
+<arm_setpoint> = (shoot | high travel | mid | low travel | intake);
+
+<drive_number> = (([<number_tens>] <number_ones> | <number_teens>) | one hundred);
+<drive_unit_single> = (inch | foot | yard | meter | centimeter);
+<drive_unit_multiple> = (inches | feet | yards | meters | centimeters);
+<drive_direction> = (forward | backward);
+
+<rotate_number> = ([<number_ones> [hundred]] ([<number_tens>] <number_ones> | <number_teens>));
+<rotate_unit_single> = (degree | radian);
+<rotate_unit_multiple> = (degrees | radians);
+<rotate_direction> = (left | right);
+
+<arm_command> = (raise | lower | move) arm to <arm_setpoint> set point;
+<drive_command> = drive <drive_direction> (<drive_number> <drive_unit_multiple> | one <drive_unit_single>);
+<rotate_command> = (rotate | turn) <rotate_direction> <rotate_number> [degrees];
+<stop_command> = stop ((all | every thing) | (rotating | spinning) | driving);
+<random_command> = (spin in circles | turn servo (on | off));
+
+public <robot_command> = [<name>] (<arm_command> | <drive_command> | <rotate_command> | <stop_command> | <random_command>);
