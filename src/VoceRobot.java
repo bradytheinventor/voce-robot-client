@@ -60,6 +60,8 @@ public class VoceRobot {
 				String s = voce.SpeechInterface.popRecognizedString();
 				
 				SmartDashboard.putString("Command", s);
+				SmartDashboard.putString("Command Units", WordToDigit.parseUnits(s));
+				SmartDashboard.putNumber("Command Number", WordToDigit.parseNumber(s));
 				SmartDashboard.putBoolean("New Command", true);
 				printAndSay(s);
 				

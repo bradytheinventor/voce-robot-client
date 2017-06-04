@@ -15,6 +15,9 @@ public class WordToDigit {
 												"14", "15", "16", "17", "18", "19", "20", "30", "40", "50", "60", "70", "80",
 												"90", "00", "000"};
 	
+	private static final String[] units = {"degrees", "radians", "centimeters", "centimeter", "meters", "meter",
+										"yards", "yard", "feet", "foot", "inches", "inch"};
+	
 	/** This function takes a series of words, converts all 'word numbers' to digits, then returns the string*/
 	public static String convertAllDigits(String s) {
 		//declare variables
@@ -77,5 +80,16 @@ public class WordToDigit {
 		
 		//return value
 		return value;
+	}
+
+	/** This function takes a series of words, finds the associated unit, then returns it**/
+	public static String parseUnits(String s) {
+		for(String unit : units) {
+			if(s.contains(unit)) {
+				return unit;
+			}
+		}
+		
+		return "NONE";
 	}
 }
