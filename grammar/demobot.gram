@@ -6,8 +6,6 @@
 
 grammar commands;
 
-public <control> = (enable | disable);
-
 <name> = (robot | side shot);
 
 <number_ones> = (one | two | three | four | five | six | seven | eight | nine);
@@ -33,4 +31,5 @@ public <control> = (enable | disable);
 <stop_command> = stop ((all | moving | every thing) | (rotating | turning | spinning) | driving);
 <random_command> = (spin in circles);
 
+public <control> = [okay] [<name>] (enable | disable);
 public <robot_command> = [okay] [<name>] (<arm_command> | <drive_command> | <rotate_command> | <stop_command> | <random_command>);
