@@ -30,7 +30,7 @@ public <control> = (enable | disable);
 <arm_command> = (raise | lower | move) arm to <arm_setpoint> set point;
 <drive_command> = drive <drive_direction> (<drive_number> <drive_unit_multiple> | one <drive_unit_single>);
 <rotate_command> = (rotate | turn) <rotate_direction> <rotate_number> [degrees];
-<stop_command> = stop ((all | every thing) | (rotating | spinning) | driving);
-<random_command> = (spin in circles | turn servo (on | off));
+<stop_command> = stop ((all | moving | every thing) | (rotating | turning | spinning) | driving);
+<random_command> = (spin in circles);
 
-public <robot_command> = [<name>] (<arm_command> | <drive_command> | <rotate_command> | <stop_command> | <random_command>);
+public <robot_command> = [okay] [<name>] (<arm_command> | <drive_command> | <rotate_command> | <stop_command> | <random_command>);
