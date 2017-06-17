@@ -76,6 +76,11 @@ public class VoceRobot {
 		SmartDashboard.putString("Command", "disable");
 		SmartDashboard.putBoolean("New Command", true);
 		
+		//wait a moment to ensure stop command has been sent
+		try {
+			Thread.sleep(250);
+		} catch(Exception e) {}
+		
 		//print message and end client program
 		System.out.println("[Voce] Stopping all systems. Goodbye.");
 		System.exit(0);
